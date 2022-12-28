@@ -59,39 +59,5 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  // ignore: non_constant_identifier_names
-  Widget TabWidget(
-      {required String text, required int id, required MovieCubit cubit}) {
-    return InkWell(
-      onTap: () => cubit.setTabIndex(id),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
-        decoration: id != cubit.tapIndex
-            ? null
-            : BoxDecoration(
-                color: primaryColor,
-                borderRadius: BorderRadius.circular(16),
-                boxShadow: [
-                  BoxShadow(
-                      color: primaryColor.withOpacity(.5),
-                      offset: const Offset(1, 1),
-                      blurRadius: 5),
-                  BoxShadow(
-                    color: primaryColor.withOpacity(.5),
-                    offset: const Offset(-1, -1),
-                    blurRadius: 5,
-                  ),
-                ],
-              ),
-        child: Text(
-          text,
-          style: TextStyle(
-            color: id != cubit.tapIndex ? Colors.black : Colors.white,
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
-    );
-  }
+
 }

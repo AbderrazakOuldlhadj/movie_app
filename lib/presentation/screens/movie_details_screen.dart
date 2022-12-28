@@ -48,12 +48,19 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          Image.network(
-                            "https://image.tmdb.org/t/p/w500${movie!.backdropPath}",
-                            height: MediaQuery.of(context).size.height * 0.4,
-                            width: MediaQuery.of(context).size.width,
-                            fit: BoxFit.cover,
-                          ),
+                          movie!.backdropPath != null
+                              ? Image.network(
+                                  "https://image.tmdb.org/t/p/w500${movie!.backdropPath}",
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.4,
+                                  width: MediaQuery.of(context).size.width,
+                                  fit: BoxFit.cover,
+                                )
+                              : SizedBox(
+                                  height:
+                                      MediaQuery.of(context).size.height * 0.4,
+                                  width: MediaQuery.of(context).size.width,
+                                ),
                           const SizedBox(height: 75 + 10),
                           Text(
                             widget.isMovie ? movie.title! : movie.name!,
@@ -155,29 +162,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                     Positioned(
                       left: 16,
                       top: MediaQuery.of(context).padding.top + 5,
-                      child: InkWell(
-                        onTap: () {
-                          Navigator.of(context).pop();
-                        },
-                        child: Container(
-                          height: 40,
-                          width: 40,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            boxShadow: [
-                              BoxShadow(
-                                color: primaryColor.withOpacity(.7),
-                                blurRadius: 5,
-                              )
-                            ],
-                          ),
-                          child: const Icon(
-                            Icons.arrow_back,
-                            color: Colors.white,
-                            size: 25,
-                          ),
-                        ),
-                      ),
+                      child: _backButton(context),
                     )
                   ],
                 )
@@ -185,6 +170,32 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                   child: CircularProgressIndicator(color: primaryColor),
                 );
         },
+      ),
+    );
+  }
+
+  Widget _backButton(context) {
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).pop();
+      },
+      child: Container(
+        height: 40,
+        width: 40,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          boxShadow: [
+            BoxShadow(
+              color: primaryColor.withOpacity(.7),
+              blurRadius: 5,
+            )
+          ],
+        ),
+        child: const Icon(
+          Icons.arrow_back,
+          color: Colors.white,
+          size: 25,
+        ),
       ),
     );
   }
