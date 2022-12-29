@@ -19,7 +19,7 @@ class HomeScreen extends StatelessWidget {
         MovieCubit cubit = BlocProvider.of(cx);
         return Scaffold(
           appBar: AppBar(
-            title: const Text("Movie App"),
+            title: const Text("FlixFlex"),
             actions: [
               InkWell(
                 onTap: () => Navigator.of(context)

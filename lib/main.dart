@@ -1,3 +1,4 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -14,7 +15,6 @@ Future<void> main() async {
   await Hive.openBox('data');
 
   Widget home = LoginScreen();
-  Hive.box('data').clear();
   home = Hive.box('data').get('uid') != null ? HomeScreen() : LoginScreen();
 
   runApp(MyApp(home));
@@ -53,7 +53,16 @@ class MyApp extends StatelessWidget {
           ),
         ),
         debugShowCheckedModeBanner: false,
-        home: home,
+        home: AnimatedSplashScreen(
+          backgroundColor: Colors.white,
+          splashTransition: SplashTransition.slideTransition,
+          splash: Image.asset(
+            'assets/icons/app_icon.png',
+            height: 200,
+            width: 200,
+          ),
+          nextScreen: home,
+        ),
       ),
     );
   }

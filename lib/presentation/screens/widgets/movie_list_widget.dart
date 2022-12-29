@@ -4,8 +4,6 @@ import 'package:movie_app/bloc/movie/movie_states.dart';
 import '../../../bloc/movie/movie_cubit.dart';
 import '../../components/components.dart';
 
-
-
 class MovieList extends StatelessWidget {
   MovieCubit cubit;
 
@@ -82,7 +80,7 @@ class MovieList extends StatelessWidget {
                                 ),
                               ),
                             Text(
-                              'page: ${isMovie ? cubit.popularMovies!.page : cubit.popularSeries!.page}',
+                              '${isMovie ? cubit.popularMovies!.page : cubit.popularSeries!.page}/${isMovie ? cubit.popularMovies!.page : cubit.popularSeries!.totalPages}',
                               style: const TextStyle(fontSize: 18),
                             ),
                             InkWell(
