@@ -6,9 +6,9 @@
  
 </h1>
  
-<h4 align="center">E_kraya  EOS (End Of Studies) app project made with flutter</h4>
+
  
-[![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/contains-tasty-spaghetti-code.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)(https://forthebadge.com)
  
 <p>
 <img src="https://raw.githubusercontent.com/Belveloper/e_kraya/master/Screenshot_20220926-193133.jpg" width="200" height="440"/>
