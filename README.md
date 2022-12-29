@@ -2,10 +2,8 @@
 
 <h1 align="center">
   <br>
-  <a href="https://github.com/belveloper/e_kraya"><img src="https://raw.githubusercontent.com/Belveloper/e_kraya/master/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" alt="E_kraya" width="100"></a>
-  <br>
-  E_9raya an e-learning tool for better online studies 
-  <br>
+  <a href="https://github.com/AbderrazakOuldlhadj/movie_app"><img src="https://raw.githubusercontent.com/Belveloper/e_kraya/master/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" alt="E_kraya" width="100"></a>
+ 
 </h1>
  
 <h4 align="center">E_kraya  EOS (End Of Studies) app project made with flutter</h4>
