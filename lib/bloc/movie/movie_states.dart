@@ -23,6 +23,12 @@ class GetMovieDetailsErrorState extends MovieStates {
   GetMovieDetailsErrorState(this.error);
 }
 
+class GetMovieTrailerLoadingState extends MovieStates {}
+
+class GetMovieTrailerSuccessState extends MovieStates {}
+
+class GetMovieTrailerErrorState extends MovieStates {}
+
 class GetTop5MoviesLoadingState extends MovieStates {}
 
 class GetTop5MoviesSuccessState extends MovieStates {

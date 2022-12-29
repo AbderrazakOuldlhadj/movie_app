@@ -44,6 +44,8 @@ dependencies:
   fluttertoast:
   firebase_core: ^2.4.0
   firebase_auth: ^4.2.3
+  video_player: ^2.4.10
+  url_launcher: ^6.1.7
 
 
 dev_dependencies:

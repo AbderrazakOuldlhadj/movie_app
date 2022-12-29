@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../bloc/movie/movie_cubit.dart';
-import '../../bloc/movie/movie_states.dart';
-import '../components/components.dart';
+import '../../../bloc/movie/movie_cubit.dart';
+import '../../../bloc/movie/movie_states.dart';
+import '../../components/components.dart';
+
+
 
 class TopRated extends StatelessWidget {
   MovieCubit cubit;
@@ -25,7 +27,7 @@ class TopRated extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  'Films',
+                  'Movies',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10),

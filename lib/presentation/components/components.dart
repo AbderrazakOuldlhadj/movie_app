@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:hive/hive.dart';
 import 'package:movie_app/data/models/movie_model.dart';
 
-import '../../bloc/movie/movie_cubit.dart';
 import '../screens/login_screen.dart';
 import '../screens/movie_details_screen.dart';
 
@@ -77,11 +75,13 @@ Widget MovieWidget(
         children: [
           Positioned.fill(
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: Image.network(
-                "https://image.tmdb.org/t/p/original${movie.posterPath.toString()}",
-                fit: BoxFit.cover,
-              ),
+              borderRadius: BorderRadius.circular(10),
+              child: movie.posterPath != null
+                  ? Image.network(
+                      "https://image.tmdb.org/t/p/original${movie.posterPath.toString()}",
+                      fit: BoxFit.cover,
+                    )
+                  : const SizedBox(height: 300, width: 230),
             ),
           ),
           Positioned(
@@ -91,7 +91,10 @@ Widget MovieWidget(
             child: Container(
               height: 150,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
+                borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                ),
                 gradient: LinearGradient(
                   begin: Alignment.bottomCenter,
                   end: Alignment.topCenter,

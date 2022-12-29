@@ -1,3 +1,4 @@
+
 class MovieDetails {
   bool? adult;
   String? backdropPath;
@@ -25,6 +26,7 @@ class MovieDetails {
   bool? video;
   double? voteAverage;
   int? voteCount;
+  String? trailerKey;
 
   MovieDetails(
       {this.adult,
@@ -52,7 +54,8 @@ class MovieDetails {
       this.name,
       this.video,
       this.voteAverage,
-      this.voteCount});
+      this.voteCount,
+      this.trailerKey});
 
   MovieDetails.fromJson(Map<String, dynamic> json) {
     adult = json['adult'];
@@ -103,6 +106,59 @@ class MovieDetails {
     video = json['video'];
     voteAverage = json['vote_average'];
     voteCount = json['vote_count'];
+  }
+
+  MovieDetails.fromJsonWithTrailerKey(
+      Map<String, dynamic> json, String? trailerKey_) {
+    adult = json['adult'];
+    backdropPath = json['backdrop_path'];
+    belongsToCollection = json['belongs_to_collection'] != null
+        ? BelongsToCollection.fromJson(json['belongs_to_collection'])
+        : null;
+    budget = json['budget'];
+    if (json['genres'] != null) {
+      genres = <Genres>[];
+      json['genres'].forEach((v) {
+        genres!.add(Genres.fromJson(v));
+      });
+    }
+    homepage = json['homepage'];
+    id = json['id'];
+    imdbId = json['imdb_id'];
+    originalLanguage = json['original_language'];
+    originalTitle = json['original_title'];
+    overview = json['overview'];
+    popularity = json['popularity'];
+    posterPath = json['poster_path'];
+    if (json['production_companies'] != null) {
+      productionCompanies = <ProductionCompanies>[];
+      json['production_companies'].forEach((v) {
+        productionCompanies!.add(ProductionCompanies.fromJson(v));
+      });
+    }
+    if (json['production_countries'] != null) {
+      productionCountries = <ProductionCountries>[];
+      json['production_countries'].forEach((v) {
+        productionCountries!.add(ProductionCountries.fromJson(v));
+      });
+    }
+    releaseDate = json['release_date'];
+    revenue = json['revenue'];
+    runtime = json['runtime'];
+    if (json['spoken_languages'] != null) {
+      spokenLanguages = <SpokenLanguages>[];
+      json['spoken_languages'].forEach((v) {
+        spokenLanguages!.add(SpokenLanguages.fromJson(v));
+      });
+    }
+    status = json['status'];
+    tagline = json['tagline'];
+    title = json['title'];
+    name = json['name'];
+    video = json['video'];
+    voteAverage = json['vote_average'];
+    voteCount = json['vote_count'];
+    trailerKey = trailerKey_;
   }
 
   Map<String, dynamic> toJson() {

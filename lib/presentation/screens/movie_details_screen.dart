@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/bloc/movie/movie_cubit.dart';
 import 'package:movie_app/bloc/movie/movie_states.dart';
-import 'package:movie_app/data/models/movie_model.dart';
 import 'package:movie_app/data/models/movies_details_model.dart';
 import 'package:movie_app/presentation/components/components.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MovieDetailsScreen extends StatefulWidget {
   bool isMovie;
@@ -23,8 +23,16 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
     super.initState();
     if (widget.isMovie) {
       context.read<MovieCubit>().getMovieDetails(id: widget.id);
+      context.read<MovieCubit>().getMovieTrailer(
+            id: widget.id,
+            movieOrTv: 'movie',
+          );
     } else {
       context.read<MovieCubit>().getSerieDetails(id: widget.id);
+      context.read<MovieCubit>().getMovieTrailer(
+            id: widget.id,
+            movieOrTv: 'tv',
+          );
     }
   }
 
@@ -38,10 +46,12 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
               widget.isMovie ? cubit.movieDetails : cubit.serieDetails;
           return (widget.isMovie &&
                       cubit.movieDetails != null &&
-                      state is! GetMovieDetailsLoadingState) ||
+                      state is! GetMovieDetailsLoadingState &&
+                      state is! GetMovieTrailerLoadingState) ||
                   (!widget.isMovie &&
                       cubit.serieDetails != null &&
-                      state is! GetSerieDetailsLoadingState)
+                      state is! GetSerieDetailsLoadingState &&
+                      state is! GetMovieTrailerLoadingState)
               ? Stack(
                   children: [
                     Positioned.fill(
@@ -50,7 +60,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                         children: [
                           movie!.backdropPath != null
                               ? Image.network(
-                                  "https://image.tmdb.org/t/p/w500${movie!.backdropPath}",
+                                  "https://image.tmdb.org/t/p/w500${movie.backdropPath}",
                                   height:
                                       MediaQuery.of(context).size.height * 0.4,
                                   width: MediaQuery.of(context).size.width,
@@ -110,7 +120,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                               ),
                               const SizedBox(width: 5),
                               Text(
-                                movie.voteAverage.toString(),
+                                movie.voteAverage!.toStringAsFixed(1),
                                 style: const TextStyle(
                                   color: Colors.amber,
                                   fontSize: 20,
@@ -118,6 +128,31 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                                 ),
                               ),
                             ],
+                          ),
+                          const SizedBox(height: 20),
+                          InkWell(
+                            onTap: () async {
+                              if (cubit.videoKey != null) {
+                                await launchUrl(Uri.parse(
+                                    "https://www.youtube.com/watch?v=${cubit.videoKey}"));
+                              }
+                            },
+                            child: Container(
+                              height: 50,
+                              width: 50,
+                              decoration: const BoxDecoration(
+                                color: primaryColor,
+                                shape: BoxShape.circle,
+                                boxShadow: [
+                                  BoxShadow(
+                                      color: primaryColor, blurRadius: 20),
+                                ],
+                              ),
+                              child: const Icon(
+                                Icons.play_arrow,
+                                color: Colors.white,
+                              ),
+                            ),
                           ),
                           const SizedBox(height: 20),
                           Padding(
@@ -137,7 +172,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                                 Text(movie.overview.toString()),
                               ],
                             ),
-                          )
+                          ),
                         ],
                       ),
                     ),

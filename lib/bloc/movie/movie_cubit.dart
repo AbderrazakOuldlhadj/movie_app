@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/bloc/movie/movie_states.dart';
 import 'package:movie_app/data/models/movie_model.dart';
 import 'package:movie_app/data/models/movies_details_model.dart';
+import 'package:movie_app/data/models/video_model.dart';
 
 import '../../data/services/api.dart';
 
@@ -29,13 +30,40 @@ class MovieCubit extends Cubit<MovieStates> {
 
   Future getMovieDetails({required int id}) async {
     emit(GetMovieDetailsLoadingState());
-    Api.get(endPoint: '/movie/$id').then((value) {
+    Api.get(endPoint: '/movie/$id').then((value) async {
       print(value);
+
       movieDetails = MovieDetails.fromJson(value.data);
       emit(GetMovieDetailsSuccessState(movieDetails!));
+    }).catchError((error, t) {
+      print(error);
+      print(t);
+      emit(GetMovieDetailsErrorState(error.toString()));
+    });
+  }
+
+  String? videoKey;
+
+  Future getMovieTrailer({required int id, required String movieOrTv}) async {
+    videoKey = null;
+    emit(GetMovieTrailerLoadingState());
+    await Api.get(endPoint: '/$movieOrTv/$id/videos').then((value) {
+      print(value);
+
+      final trailer = VideoModel.fromJson(value.data);
+
+      String? trailerKey = trailer.results!
+          .firstWhere((element) =>
+              element.site == 'YouTube' && element.type == 'Trailer')
+          .key;
+      print(trailerKey);
+
+      videoKey = trailerKey;
+
+      emit(GetMovieTrailerSuccessState());
     }).catchError((error) {
       print(error);
-      emit(GetMovieDetailsErrorState(error));
+      emit(GetMovieTrailerErrorState());
     });
   }
 

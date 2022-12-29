@@ -74,7 +74,9 @@ class SearchScreen extends StatelessWidget {
                             ? const Center(child: Text('No results'))
                             : ListView.separated(
                                 physics: const BouncingScrollPhysics(),
-                                itemCount: cubit.results!.length,
+                                itemCount: cubit.tapIndex == 0
+                                    ? cubit.results!.length
+                                    : cubit.serieResults!.length,
                                 itemBuilder: (cx, index) {
                                   final movie = cubit.tapIndex == 0
                                       ? cubit.results![index]

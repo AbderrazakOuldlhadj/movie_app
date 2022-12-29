@@ -3,9 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/bloc/movie/movie_cubit.dart';
 import 'package:movie_app/bloc/movie/movie_states.dart';
 import 'package:movie_app/presentation/components/components.dart';
-import 'package:movie_app/presentation/screens/movie_list.dart';
 import 'package:movie_app/presentation/screens/search_screen.dart';
-import 'package:movie_app/presentation/screens/top_rated.dart';
+import 'widgets/top_rated_widget.dart';
+
+import 'widgets/movie_list_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -39,7 +40,7 @@ class HomeScreen extends StatelessWidget {
                     children: [
                       TabWidget(text: 'Top 5 Rated', id: 0, cubit: cubit),
                       const SizedBox(width: 8),
-                      TabWidget(text: 'Films', id: 1, cubit: cubit),
+                      TabWidget(text: 'Movies', id: 1, cubit: cubit),
                       const SizedBox(width: 8),
                       TabWidget(text: 'Series', id: 2, cubit: cubit),
                     ],
@@ -58,6 +59,4 @@ class HomeScreen extends StatelessWidget {
       },
     );
   }
-
-
 }

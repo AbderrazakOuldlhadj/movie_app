@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/bloc/movie/movie_states.dart';
 
-import '../../bloc/movie/movie_cubit.dart';
-import '../components/components.dart';
+import '../../../bloc/movie/movie_cubit.dart';
+import '../../components/components.dart';
+
+
 
 class MovieList extends StatelessWidget {
   MovieCubit cubit;
