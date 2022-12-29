@@ -2,7 +2,7 @@
 
 <h1 align="center">
   <br>
-  <a href="https://github.com/AbderrazakOuldlhadj/movie_app"><img src="https://raw.githubusercontent.com/Belveloper/e_kraya/master/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" alt="E_kraya" width="100"></a>
+  <a href="https://github.com/AbderrazakOuldlhadj/movie_app"><img src="https://github.com/AbderrazakOuldlhadj/movie_app/blob/main/assets/icons/app_icon.png" alt="E_kraya" width="100"></a>
  
 </h1>
  
