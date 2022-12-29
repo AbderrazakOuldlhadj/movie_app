@@ -8,14 +8,12 @@
  
 
  
-[![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)(https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
  
 <p>
-<img src="https://raw.githubusercontent.com/Belveloper/e_kraya/master/Screenshot_20220926-193133.jpg" width="200" height="440"/>
-<img src="https://raw.githubusercontent.com/Belveloper/e_kraya/master/Screenshot_20220926-193141.jpg" width="200" height="440"/>
-<img src="https://raw.githubusercontent.com/Belveloper/e_kraya/master/Screenshot_20220926-193138.jpg" width="200" height="440"/>
-<img src="https://raw.githubusercontent.com/Belveloper/e_kraya/e3c3b8d574d9c0a0a36aa6bd487a448b98a5c3d5/Screenshot_20220927-000202.jpg" width="200" height="440"/>
-<img src="https://raw.githubusercontent.com/Belveloper/e_kraya/e3c3b8d574d9c0a0a36aa6bd487a448b98a5c3d5/Screenshot_20220927-000217.jpg" width="200" height="440"/>
+<img src="https://github.com/AbderrazakOuldlhadj/movie_app/blob/main/screenShots/screen1.jpg" width="200" height="440"/>
+
+
 
 
 </p>
