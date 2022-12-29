@@ -14,7 +14,7 @@ Future<void> main() async {
   await Hive.openBox('data');
 
   Widget home = LoginScreen();
-
+  Hive.box('data').clear();
   home = Hive.box('data').get('uid') != null ? HomeScreen() : LoginScreen();
 
   runApp(MyApp(home));

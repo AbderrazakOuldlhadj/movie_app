@@ -54,6 +54,15 @@ class LoginScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        Center(
+                          child: Image.asset(
+                            'assets/icons/app_icon.png',
+                            height: 200,
+                            width: 200,
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        const SizedBox(height: 40),
                         Text(cubit.isLogin ? "Login" : "Register",
                             style: titleTextStyle),
                         const SizedBox(height: 20),
