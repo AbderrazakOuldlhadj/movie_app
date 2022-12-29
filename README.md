@@ -11,7 +11,15 @@
 [![forthebadge](https://forthebadge.com/images/badges/built-for-android.svg)](https://forthebadge.com) [![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
  
 <p>
-<img src="https://github.com/AbderrazakOuldlhadj/movie_app/blob/main/screenShots/screen1.jpg" width="200" height="440"/>
+  <img src="https://github.com/AbderrazakOuldlhadj/movie_app/blob/main/screenShots/screen1.jpg" width="200" height="440"/>
+  <img src="https://github.com/AbderrazakOuldlhadj/movie_app/blob/main/screenShots/screen2.jpg" width="200" height="440"/>
+  <img src="https://github.com/AbderrazakOuldlhadj/movie_app/blob/main/screenShots/screen3.jpg" width="200" height="440"/>
+  <img src="https://github.com/AbderrazakOuldlhadj/movie_app/blob/main/screenShots/screen4.jpg" width="200" height="440"/>
+  <img src="https://github.com/AbderrazakOuldlhadj/movie_app/blob/main/screenShots/screen5.jpg" width="200" height="440"/>
+  <img src="https://github.com/AbderrazakOuldlhadj/movie_app/blob/main/screenShots/screen6.jpg" width="200" height="440"/>
+  <img src="https://github.com/AbderrazakOuldlhadj/movie_app/blob/main/screenShots/screen7.jpg" width="200" height="440"/>
+  <img src="https://github.com/AbderrazakOuldlhadj/movie_app/blob/main/screenShots/screen8.jpg" width="200" height="440"/>
+  <img src="https://github.com/AbderrazakOuldlhadj/movie_app/blob/main/screenShots/screen9.jpg" width="200" height="440"/>
 
 
 
