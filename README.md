@@ -6,7 +6,7 @@
  
 </h1>
 
-<h4 align="center">E_kraya  EOS (End Of Studies) app project made with flutter</h4>
+<h4 align="left">E_kraya  EOS (End Of Studies) app project made with flutter</h4>
  
 
  
