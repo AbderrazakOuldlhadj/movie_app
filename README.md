@@ -5,6 +5,8 @@
   <a href="https://github.com/AbderrazakOuldlhadj/movie_app"><img src="https://github.com/AbderrazakOuldlhadj/movie_app/blob/main/assets/icons/app_icon.png" alt="E_kraya" width="100"></a>
  
 </h1>
+
+<h4 align="center">E_kraya  EOS (End Of Studies) app project made with flutter</h4>
  
 
  
