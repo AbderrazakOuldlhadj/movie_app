@@ -9,7 +9,7 @@
 <h4 align="left">Language : Dart</h4>
 <h4 align="left">Framework : Flutter</h4>
 <h4 align="left">State Management : bloc</h4>
-<h4 align="left">Authentication : Firebase Authentication</h4>
+<!--<h4 align="left">Authentication : Firebase Authentication</h4>-->
 <h4 align="left">API : https://www.themoviedb.org/documentation/api</h4>
 
  
