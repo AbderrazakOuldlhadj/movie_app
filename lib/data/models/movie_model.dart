@@ -6,7 +6,7 @@ class MovieModel {
 
   MovieModel({this.page, this.results, this.totalPages, this.totalResults});
 
-  MovieModel.fromJson(Map<String, dynamic> json) {
+  MovieModel.fromJson(Map<dynamic, dynamic> json) {
     page = json['page'];
     if (json['results'] != null) {
       results = <Results>[];
@@ -66,7 +66,7 @@ class Results {
       this.voteAverage,
       this.voteCount});
 
-  Results.fromJson(Map<String, dynamic> json) {
+  Results.fromJson(Map<dynamic, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = json['genre_ids'].cast<int>();

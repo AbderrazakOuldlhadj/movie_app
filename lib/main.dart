@@ -14,6 +14,7 @@ Future<void> main() async {
   await Hive.initFlutter();
   await Hive.openBox('data');
 
+
   Widget home = LoginScreen();
   home = Hive.box('data').get('uid') != null ? HomeScreen() : LoginScreen();
 
@@ -29,8 +30,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (_) => MovieCubit()
-        ..getTop5Movies()
-        ..getTop5Series()
         ..getMovies()
         ..getSeries(),
       child: MaterialApp(
@@ -61,7 +60,7 @@ class MyApp extends StatelessWidget {
             height: 200,
             width: 200,
           ),
-          nextScreen: home,
+          nextScreen: HomeScreen(),
         ),
       ),
     );

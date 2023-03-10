@@ -3,6 +3,7 @@ import 'package:movie_app/bloc/movie/movie_states.dart';
 import 'package:movie_app/data/models/movie_model.dart';
 import 'package:movie_app/data/models/movies_details_model.dart';
 import 'package:movie_app/data/models/video_model.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import '../../data/services/api.dart';
 
@@ -69,13 +70,15 @@ class MovieCubit extends Cubit<MovieStates> {
 
   Future getTop5Movies() async {
     emit(GetTop5MoviesLoadingState());
-    Api.get(endPoint: '/movie/top_rated').then((value) {
+    Api.get(endPoint: '/movie/top_rated').then((value) async {
       print(value);
-      top5Movies = MovieModel.fromJson(value.data);
+       top5Movies = MovieModel.fromJson(value.data);
+      await Hive.box('data')
+          .put('cashedMovies', MovieModel.fromJson(value.data).toJson());
       emit(GetTop5MoviesSuccessState(top5Movies!));
     }).catchError((error) {
       print(error);
-      emit(GetTop5MoviesErrorState(error));
+      emit(GetTop5MoviesErrorState(error.toString()));
     });
   }
 
@@ -88,7 +91,7 @@ class MovieCubit extends Cubit<MovieStates> {
       emit(GetMoviesSuccessState(popularMovies!));
     }).catchError((error) {
       print(error);
-      emit(GetMoviesErrorState(error));
+      emit(GetMoviesErrorState(error.toString()));
     });
   }
 
@@ -106,10 +109,12 @@ class MovieCubit extends Cubit<MovieStates> {
 
   Future getTop5Series() async {
     emit(GetTop5SeriesLoadingState());
-    Api.get(endPoint: '/tv/top_rated').then((value) {
+    Api.get(endPoint: '/tv/top_rated').then((value) async {
       print(value);
       top5Series = MovieModel.fromJson(value.data);
-      emit(GetTop5SeriesSuccessState(top5Movies!));
+
+      await Hive.box('data').put('cashedSeries', value.data);
+      emit(GetTop5SeriesSuccessState(top5Series!));
     }).catchError((error, trace) {
       print(error);
       print(trace);

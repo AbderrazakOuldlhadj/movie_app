@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:movie_app/data/models/movie_model.dart';
@@ -53,10 +54,11 @@ Widget TabWidget({required String text, required int id, required cubit}) {
   );
 }
 
-Widget MovieWidget(
-    {required BuildContext context,
-    required Results movie,
-    bool isMovie = true}) {
+Widget MovieWidget({
+  required BuildContext context,
+  required Results movie,
+  bool isMovie = true,
+}) {
   return InkWell(
     onTap: () {
       Navigator.of(context).push(
@@ -77,8 +79,9 @@ Widget MovieWidget(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: movie.posterPath != null
-                  ? Image.network(
-                      "https://image.tmdb.org/t/p/original${movie.posterPath.toString()}",
+                  ? CachedNetworkImage(
+                      imageUrl:
+                          "https://image.tmdb.org/t/p/original${movie.posterPath.toString()}",
                       fit: BoxFit.cover,
                     )
                   : const SizedBox(height: 300, width: 230),

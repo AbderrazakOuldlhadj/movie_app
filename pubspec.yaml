@@ -30,6 +30,9 @@ dependencies:
   video_player: ^2.4.10
   url_launcher: ^6.1.7
   animated_splash_screen:
+  internet_connection_checker: ^1.0.0+1
+  connectivity_plus: ^3.0.2
+  cached_network_image: ^3.2.3
 
 
 dev_dependencies:
